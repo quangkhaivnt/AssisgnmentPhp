@@ -15,7 +15,7 @@
             <li>
                 <img src="{{$products->image}}" alt="" style="width: 150px">
                 <p>Name :</p>{{$products->name}}
-                (<a href="/admin/category/{{$products->id}}/edit">Sửa</a> | <a href="{{$products->id}}" class="btn-delete">Xoá</a>)
+                (<a href="/product/{{$products->id}}/edit">Sửa</a> | <a href="{{$products->id}}" class="btn-delete">Xoá</a>)
             </li>
         @endforeach
     </ul>
@@ -26,7 +26,7 @@
        var user_confirm = confirm('Bạn có chắc không');
        if(user_confirm){
            $ajax({
-              url: 'http://localhost:8000/product' + productId,
+              url: 'http://localhost:8000/product/' + productId,
               method : 'DELETE',
               data : {
                   '_token' : "{{ csrf_token() }}"

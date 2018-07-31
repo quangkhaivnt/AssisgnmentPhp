@@ -13,7 +13,7 @@
         <h1>Product Edit</h1>
     </div>
     <div class="row">
-        <form action="/product/update{{$products->id}}" method="post">
+        <form action="/product/update{{$products->id}}" method="push">
             {{csrf_field()}}
             <div class="form-group">
                 <label>Product Name :</label>

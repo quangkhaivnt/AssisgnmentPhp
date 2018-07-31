@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('.product.list')->with('list_obj', $products);
+        return view('.product.list')->with('product', $products);
     }
 
     /**
@@ -55,7 +55,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $products = Product::all();
-        return view('/product.list', ['product', $products]);
+        return view('.product.list', ['product', $products]);
     }
 
     /**
@@ -103,6 +103,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $products = Product::find($id);
+        if($products == null){
+            return 'Sản phẩm đã xóa hoặc không tồn tại';
+        }
+        $products.delete();
+        return response('delete', '/404');
     }
 }
