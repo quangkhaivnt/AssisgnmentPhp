@@ -105,9 +105,9 @@ class ProductController extends Controller
     {
         $products = Product::find($id);
         if($products == null){
-            return 'Sản phẩm đã xóa hoặc không tồn tại';
+            return response ('Sản phẩm đã xóa hoặc không tồn tại ', '/404');
         }
         $products.delete();
-        return response('delete', '/404');
+        return response('delete', 200);
     }
 }
